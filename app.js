@@ -65,13 +65,15 @@ function compareScore() {
     if((userSum > 21 && compSum > 21) || (userSum == compSum)) {
         result.textContent = "You Drew!";
         result.style.color = "grey";
-    } else if((userSum > 21 && compSum <= 21) || (userSum < compSum)) {
+    } else if((userSum > 21 && compSum <= 21) || (userSum < 22 && compSum < 22 &&  userSum < compSum)) {
         result.textContent = "You Lost!";
         result.style.color = "red";
-    } else if((userSum <= 21 && compSum > 21) || (userSum > compSum)) {
+        loseSound.play();
+    } else if((userSum <= 21 && compSum > 21) || (userSum < 22 && compSum < 22 &&  userSum > compSum)) {
         result.textContent = "You Won!";
         result.style.color = "green";
-    } else if()
+        winSound.play();
+    }
 }
 
 hit.addEventListener("click", ()=> {
