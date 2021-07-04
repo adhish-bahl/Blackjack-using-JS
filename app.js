@@ -65,13 +65,19 @@ function compareScore() {
     if((userSum > 21 && compSum > 21) || (userSum == compSum)) {
         result.textContent = "You Drew!";
         result.style.color = "grey";
+        draws++;
+        drawsDOM.textContent = draws;
     } else if((userSum > 21 && compSum <= 21) || (userSum < 22 && compSum < 22 &&  userSum < compSum)) {
         result.textContent = "You Lost!";
         result.style.color = "red";
+        compScore++;
+        compScoreDOM.textContent = compScore;
         loseSound.play();
     } else if((userSum <= 21 && compSum > 21) || (userSum < 22 && compSum < 22 &&  userSum > compSum)) {
         result.textContent = "You Won!";
         result.style.color = "green";
+        userScore++;
+        userScoreDOM.textContent = userScore;
         winSound.play();
     }
 }
