@@ -40,7 +40,11 @@ function pickAndDisplayCard(sum, cardArea, sumArea) {
     return sum;
 }
 
-function compHit() {
+function sleep (ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function compHit() {
     hit.setAttribute("disabled", "");
     stand.setAttribute("disabled", "");
     deal.removeAttribute("disabled");
@@ -54,6 +58,7 @@ function compHit() {
             compSumDOM.textContent = "BUST!";
             compareScore();
         }
+        await sleep(800);
     }
     compareScore();
 }
