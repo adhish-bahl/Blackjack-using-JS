@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');
+
+:root {
+    --primaryColor: rgb(13, 83, 13);
+    --secondaryColor: rgb(15, 58, 15);
+    --lightColor: whitesmoke;
+}
+
+* {
+    text-align: center;
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: asap;
+    color: var(--lightColor);
+}
+
+body {
+    background-color: var(--primaryColor);
+}
+
+.header {
+    padding: 30px;
+    border-bottom: 3px solid var(--secondaryColor);
+    border-radius: 0px 0px 10px 10px;
+    background-color: var(--lightColor);
+    font-size: 1.2rem;
+}
+
+.header h1, button {
+    color: var(--secondaryColor);
+}
+
+
+section{
+    margin: 15px auto;
+    padding: 5px;
+}
+
+
+.result {
+    font-size: 2.3rem;
+    padding: 5px;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    height: 300px;
+    border-bottom: 2px solid var(--secondaryColor);
+}
+
+.cards>div {
+    width: 50%;
+    height: fit-content;
+}
+
+.cardSection {
+    display: flex;
+    padding: 10px;
+    margin: 2px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: fit-content;
+    min-height: 270px;    
+    width: 100%;
+}
+
+.compCardSection {
+    border-left: 2px solid var(--secondaryColor);
+}
+
+.cardSection img {
+    border-radius: 5px;
+    height: 200px;
+    margin: 5px;
+}
+
+.playSection {
+    background-image: url("static/images/greenMat.jpg");
+    background-repeat:repeat-x;
+    background-size: contain;
+    border-radius: 0px 0px 40px 40px;
+    z-index: 5;
+}
+
+.buttons {
+    padding: 5px;
+}
+
+.btn {
+    font-size: 1.5rem;
+    padding: 3px 7px;
+    background-color: var(--lightColor);
+    outline: none;
+    border: 2px solid var(--secondaryColor);
+    margin: 3px 10px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 27px 0px rgba(0,0,0,0.75);
+}
+
+.btn:hover {
+    transform: scale(1.04);
+    background-color: rgb(255, 212, 212);
+}
+
+.scoreBoard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.scoreBoardHeading{
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+table {
+    box-shadow: 10px 10px 27px 0px rgba(0,0,0,0.75);
+}
+
+table, td, th {
+    border: 2px solid var(--secondaryColor);
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 6px;
+    font-size: 1.3rem;
+}
