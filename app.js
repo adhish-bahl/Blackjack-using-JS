@@ -40,7 +40,7 @@ function pickAndDisplayCard(sum, cardArea, sumArea) {
     if(sum > 21) {
         result.textContent = "Bursted, the sum crossed 21!";
         result.style.color = "red";
-        userSumDOM.textContent = "BUST!";
+        sumArea.textContent = "BUST!";
         compHit();
     }
     return sum;
@@ -48,23 +48,44 @@ function pickAndDisplayCard(sum, cardArea, sumArea) {
 
 function compHit() {
     hit.setAttribute("disabled", "");
-    // hit.className += " disableBtn";
+    stand.setAttribute("disabled", "");
     deal.removeAttribute("disabled");
     // deal.classList.remove("disableBtn");
-    stand.setAttribute("disabled", "");
+    // hit.className += " disableBtn";
     // stand.className += " disableBtn";
 
+    while(compSum < 15) {
+        compSum = pickAndDisplayCard(compSum, compCardSection, compSumDOM);
+        // console.log("loop");
+    }
+    compareScore();
+}
+
+function compareScore() {
+    if((userSum > 21 && compSum > 21) || (userSum == compSum)) {
+        result.textContent = "You Drew!";
+        result.style.color = "grey";
+    } else if((userSum > 21 && compSum <= 21) || (userSum < compSum)) {
+        result.textContent = "You Lost!";
+        result.style.color = "red";
+    } else if((userSum <= 21 && compSum > 21) || (userSum > compSum)) {
+        result.textContent = "You Won!";
+        result.style.color = "green";
+    } else if()
 }
 
 hit.addEventListener("click", ()=> {
+    console.log("hit");
     userSum = pickAndDisplayCard(userSum, userCardSection, userSumDOM);
 });
 
 stand.addEventListener("click", ()=> {
+    console.log("stand");
     compHit();
 });
 
 deal.addEventListener("click", ()=> {
+    console.log("deal");
     userSumDOM.textContent = "0";
     compSumDOM.textContent = "0";
     result.textContent = "Ready for Next Round?";
@@ -79,4 +100,5 @@ deal.addEventListener("click", ()=> {
     hit.removeAttribute("disabled");
     // hit.classList.remove("disableBtn");
     result.style.color = "whitesmoke";
+    deal.setAttribute("disabled","")
 });
