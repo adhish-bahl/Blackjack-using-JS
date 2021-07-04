@@ -37,7 +37,6 @@ function pickAndDisplayCard(sum, cardArea, sumArea) {
         sum = sum + index + 2;
     }
     sumArea.textContent = sum;
-    console.log(cardArea);
     return sum;
 }
 
@@ -55,13 +54,11 @@ function compHit() {
             compSumDOM.textContent = "BUST!";
             compareScore();
         }
-        // console.log("loop");
     }
     compareScore();
 }
 
 function compareScore() {
-    console.log(userSum, compSum);
     if((userSum > 21 && compSum > 21) || (userSum == compSum)) {
         result.textContent = "You Drew!";
         result.style.color = "grey";
@@ -83,7 +80,6 @@ function compareScore() {
 }
 
 hit.addEventListener("click", ()=> {
-    console.log("hit");
     userSum = pickAndDisplayCard(userSum, userCardSection, userSumDOM);
     if(userSum > 21) {
         userSumDOM.textContent = "BUST!";
@@ -92,12 +88,10 @@ hit.addEventListener("click", ()=> {
 });
 
 stand.addEventListener("click", ()=> {
-    console.log("stand");
     compHit();
 });
 
 deal.addEventListener("click", ()=> {
-    console.log("deal");
     userSumDOM.textContent = "0";
     compSumDOM.textContent = "0";
     result.textContent = "Ready for Next Round?";
@@ -110,7 +104,7 @@ deal.addEventListener("click", ()=> {
     }
     compSum = userSum = 0;
     hit.removeAttribute("disabled");
-    // hit.classList.remove("disableBtn");
     result.style.color = "whitesmoke";
     deal.setAttribute("disabled","")
+    // hit.classList.remove("disableBtn");
 });
