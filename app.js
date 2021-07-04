@@ -37,12 +37,7 @@ function pickAndDisplayCard(sum, cardArea, sumArea) {
         sum = sum + index + 2;
     }
     sumArea.textContent = sum;
-    if(sum > 21) {
-        result.textContent = "Bursted, the sum crossed 21!";
-        result.style.color = "red";
-        sumArea.textContent = "BUST!";
-        compHit();
-    }
+    console.log(cardArea);
     return sum;
 }
 
@@ -56,12 +51,17 @@ function compHit() {
 
     while(compSum < 15) {
         compSum = pickAndDisplayCard(compSum, compCardSection, compSumDOM);
+        if(compSum > 21) {
+            compSumDOM.textContent = "BUST!";
+            compareScore();
+        }
         // console.log("loop");
     }
     compareScore();
 }
 
 function compareScore() {
+    console.log(userSum, compSum);
     if((userSum > 21 && compSum > 21) || (userSum == compSum)) {
         result.textContent = "You Drew!";
         result.style.color = "grey";
@@ -85,6 +85,10 @@ function compareScore() {
 hit.addEventListener("click", ()=> {
     console.log("hit");
     userSum = pickAndDisplayCard(userSum, userCardSection, userSumDOM);
+    if(userSum > 21) {
+        userSumDOM.textContent = "BUST!";
+        compHit();
+    }
 });
 
 stand.addEventListener("click", ()=> {
