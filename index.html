@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Blackjack</title>
+</head>
+<body>
+    <header class="header">
+        <h1>Welcome to Blackjack!</h1>
+    </header>
+    <section class="result"></section>
+    <section class="playSection">
+        <p class="cards">
+            <p class="userCards">
+                <h1 class="userSumSection">You: <span class="userSum"></span></h1>
+            </p>
+            <p class="compCards">
+                <h1 class="compSumSection">Computer: <span class="compSum"></span></h1>
+            </p>
+        </p>
+        <p class="buttons">
+            <button class="hit btn">Hit</button>
+            <button class="stand btn">Stand</button>
+            <button class="deal btn">Deal</button>
+        </p>
+    </section>
+    <section class="scoreBoard">
+        <h1 class="scoreBoardHeading">Score Board</h1>
+        <table class="scoreBoardTable">
+            <tr>
+                <th>You</th>
+                <th>Computer</th>
+                <th>Draws</th>
+            </tr>
+            <tr>
+                <td><span class="userScore">0</span></td>
+                <td><span class="compScore">0</span></td>
+                <td><span class="draws">0</span></td>
+            </tr>
+        </table>
+    </section>
+    <script src="app.js"></script>
+</body>
+</html>
