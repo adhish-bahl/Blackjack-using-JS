@@ -90,6 +90,12 @@ section{
     padding: 5px;
 }
 
+.disableBtn {
+    transform: scale(0.9);
+    pointer-events: none;
+    background-color: rgb(102, 98, 98) !important;
+}
+
 .btn {
     font-size: 1.5rem;
     padding: 3px 7px;

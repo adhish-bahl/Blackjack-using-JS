@@ -29,6 +29,11 @@ function pickAndDisplayCard(sum, cardArea, sumArea) {
         sum = sum + index + 2;
     }
     sumArea.textContent = sum;
+    if(sum > 21) {
+        result.textContent = "Bursted, the sum crossed 21!";
+        hit.setAttribute("disabled", "");
+        hit.className += " disableBtn";
+    }
     return sum;
 }
 
@@ -37,7 +42,8 @@ hit.addEventListener("click", ()=> {
 });
 
 stand.addEventListener("click", ()=> {
-    
+    hit.setAttribute("disabled", "");
+    hit.className += " disableBtn";
 });
 
 deal.addEventListener("click", ()=> {
@@ -52,4 +58,6 @@ deal.addEventListener("click", ()=> {
         compCardSection.removeChild(compCardSection.firstChild);
     }
     compSum = userSum = 0;
+    hit.removeAttribute("disabled");
+    hit.classList.remove("disableBtn");
 });
